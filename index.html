@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
+  
+  <link rel="stylesheet" href="css/style.css">
+  <title>vue start</title>
+</head>
+<body>
+
+  <div id="app">
+
+    <p>{{messaggio}}</p>
+    <input v-model="messaggio" type="text">
+    <input v-model="mioColore" type="text">
+
+    <h1 v-bind:class="mioColore">{{messaggio}}</h1>
+    <h2 
+      class="sottolineato" 
+      :class="mioColore"
+    >{{messaggio}}</h2>
+    <h3>{{messaggio}}</h3>
+    <h4>{{messaggio}}</h4>
+    <h5 :class="mioColore">{{messaggio}}</h5>
+    <h6>{{messaggio}}</h6>
+    <p
+      class="sottolineato grassetto" 
+      :class="mioColore"
+    >
+
+    <p
+      class="sottolineato" 
+      :class="[mioStile, mioColore]"
+    >
+    {{messaggio}}
+    </p>
+    <p :class="{'grassetto': isGrassetto}">1 {{messaggio}}</p>
+    <p :class="isGrassetto ? 'grassetto' : ''">2 {{messaggio}}</p>
+    <p :class="[isGrassetto ? 'grassetto' : '', mioColore]">3 {{messaggio}}</p>
+    <p :class="[{'grassetto': isGrassetto}, mioColore]">4 {{messaggio}}</p>
+    <button @click="mioColore = 'blu'">colora blu</button> <br>
+    <button @click="mioColore = 'rosso'">colora rosso</button><br>
+    <button @click="isGrassetto = !isGrassetto">toggle grassetto</button><br>
+    <button @click="funzioneEstesa()">funzioneEstesa</button><br>
+    <button @click="funzioneCompatta()">funzioneCompatta</button><br>
+    <button @click="arrowFunction()">arrowFunction</button><br>
+    <button @click="toggleGrassetto()">toggle grassetto con funzione</button><br>
+    <button @click="cambiaMessaggio('Buon appetito!')">cambia messaggio</button><br>
+    
+    
+
+  </div>
+  
+  <script src="js/script.js"></script>
+</body>
+</html>
